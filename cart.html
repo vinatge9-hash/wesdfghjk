@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <title>Cart — Brew Haven</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+</head>
+<body style="font-family: 'Playfair Display', sans-serif;" class='bg-amber-50 text-gray-800 font-sans'>
+  <header class='fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 py-3 flex items-center justify-between'>
+      <div class='flex items-center gap-2'>
+        <svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' aria-label='Brew Haven logo'>
+          <circle cx='12' cy='12' r='9' stroke='#B45309' stroke-width='2' fill='none'/>
+          <path d='M8 14 h8 a1 1 0 0 0 1 -1 v-2 a4 4 0 0 0 -4 -4 h-2 a4 4 0 0 0 -4 4 v2 a1 1 0 0 0 1 1 z' fill='#D97706'/>
+        </svg>
+        <span class='font-semibold text-xl' style="font-family: ;">Brew Haven</span>
+      </div>
+      <nav class='hidden md:flex space-x-6'>
+        <a href='index.html' class='text-gray-700 hover:text-amber-700'>Home</a>
+        <a href='menu.html' class='text-gray-700 hover:text-amber-700'>Menu</a>
+        <a href='contact.html' class='text-gray-700 hover:text-amber-700'>Contact</a>
+      </nav>
+      <a href='menu.html' class='hidden md:inline-block bg-amber-600 text-white px-4 py-2 rounded-md'>Checkout</a>
+    </div>
+  </header>
+
+  <main class='pt-32 max-w-5xl mx-auto px-6'>
+    <h1 class='text-3xl font-serif font-black mb-6' style="font-family: ;">Your Shopping Cart</h1>
+    <div id='cart-list' class='space-y-4'></div>
+    <div class='flex items-center justify-between mt-6 border-t pt-4'>
+      <span class='font-semibold text-lg'>Total</span>
+      <span id='cart-total' class='font-semibold text-lg'>₹0.00</span>
+    </div>
+    <div class='mt-4 flex gap-4'>
+      <button id='clear-cart' class='bg-red-500 text-white px-4 py-2 rounded'>Clear Cart</button>
+      <button id='proceed-checkout' class='bg-amber-600 text-white px-4 py-2 rounded'>Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <footer class='bg-amber-900 text-white py-6 mt-12'>
+    <div class='container mx-auto text-center'>
+      <p>&copy; 2025 Brew Haven. Hyderabad, Telangana, India</p>
+    </div>
+  </footer>
+
+  <script>
+    const key = 'brewHavenCart';
+    function getCart(){ const s = localStorage.getItem(key); return s ? JSON.parse(s) : []; }
+    function saveCart(items){ localStorage.setItem(key, JSON.stringify(items)); renderCart(); }
+    function removeAll(){ localStorage.removeItem(key); renderCart(); }
+    function format(n){ return '₹' + Number(n).toFixed(2); }
+    function renderCart(){ const items = getCart(); const list = document.getElementById('cart-list'); const totalEl = document.getElementById('cart-total'); if(!list) return; if(items.length === 0){ list.innerHTML = '<p class="text-sm text-gray-600">Your cart is empty. Add some items from the Menu.</p>'; totalEl.textContent = '₹0.00'; return; }
+      list.innerHTML = items.map(it => `
+        <div class='flex items-center justify-between border rounded p-2'>
+          <div class='flex items-center gap-2'>
+            <span class='w-6 h-6 rounded bg-amber-200 inline-flex items-center justify-center'>${it.name.charAt(0)}</span>
+            <div>
+              <div class='font-medium'>${it.name}</div>
+              <div class='text-xs text-gray-500'>${it.qty} × ${format(it.price)}</div>
+            </div>
+          </div>
+          <div class='flex items-center gap-2'>
+            <button onclick="update('${it.id}', -1)" class='px-2 py-1 bg-gray-200 rounded'>-</button>
+            <span>${it.qty}</span>
+            <button onclick="update('${it.id}', 1)" class='px-2 py-1 bg-gray-200 rounded'>+</button>
+            <button onclick="remove('${it.id}')" class='text-red-500'>Remove</button>
+          </div>
+        </div>
+      `).join('');
+    const total = items.reduce((a,b)=> a + (b.price*b.qty), 0); totalEl.textContent = format(total);
+    }
+    function update(id, delta){ const list = getCart(); const item = list.find(i => i.id === id); if(item){ item.qty = Math.max(1, item.qty + delta); saveCart(list); } }
+    function remove(id){ const list = getCart().filter(i => i.id !== id); saveCart(list); }
+    document.getElementById('clear-cart')?.addEventListener('click', removeAll);
+    document.getElementById('proceed-checkout')?.addEventListener('click', ()=>{ alert('This is a demo checkout. In a real app, you would proceed to a payment gateway.'); });
+    window.addEventListener('load', renderCart);
+  </script>
+</body>
+</html>
