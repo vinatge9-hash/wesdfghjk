@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <title>Contact — Brew Haven</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0);} }
+    .fade-in { opacity:0; animation: fadeInUp 0.8s forwards; }
+  </style>
+</head>
+<body style="font-family: 'Playfair Display', sans-serif;" class='bg-amber-50 text-gray-800 font-sans'>
+  <!-- Header -->
+  <header class='fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 py-3 flex items-center justify-between'>
+      <div class='flex items-center gap-2'>
+        <svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' aria-label='Brew Haven logo'>
+          <circle cx='12' cy='12' r='9' stroke='#B45309' stroke-width='2' fill='none'/>
+          <path d='M8 14 h8 a1 1 0 0 0 1 -1 v-2 a4 4 0 0 0 -4 -4 h-2 a4 4 0 0 0 -4 4 v2 a1 1 0 0 0 1 1 z' fill='#D97706'/>
+        </svg>
+        <span class='font-semibold text-xl' style="font-family: ;">Brew Haven</span>
+      </div>
+      <nav class='hidden md:flex space-x-6'>
+        <a href='index.html' class='text-gray-700 hover:text-amber-700'>Home</a>
+        <a href='about.html' class='text-gray-700 hover:text-amber-700'>About</a>
+        <a href='menu.html' class='text-gray-700 hover:text-amber-700'>Menu</a>
+        <a href='contact.html' class='text-gray-700 hover:text-amber-700'>Contact</a>
+      </nav>
+      <div class='flex items-center gap-3'>
+        <a href='menu.html' class='hidden md:inline-block bg-gradient-to-r from-amber-500 to-amber-700 text-white px-4 py-2 rounded-md shadow'>Order Online</a>
+      </div>
+    </div>
+  </header>
+
+  <section class='relative w-full h-72 md:h-96 overflow-hidden' aria-label='Contact hero'>
+    <img src='https://images.unsplash.com/photo-1721013398213-0cbadf22042f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwxfHxtZWV0aW5nJTIwYXQlMjBjYWZlfGVufDB8MHx8fDE3NTY4MzMzNzh8MA&ixlib=rb-4.1.0&q=80&w=1080' alt='People in cafe meeting' class='absolute inset-0 w-full h-full object-cover brightness-90'/>
+    <div class='absolute inset-0 bg-gradient-to-br from-amber-600 to-amber-800 opacity-60'></div>
+    <div class='relative z-10 h-full flex items-center justify-center'>
+      <h1 class='text-4xl md:text-5xl font-serif font-black text-white'>Get in touch with Brew Haven</h1>
+    </div>
+  </section>
+
+  <main class='max-w-5xl mx-auto px-6 py-12'>
+    <section class='grid md:grid-cols-2 gap-12'>
+      <div class='fade-in'>
+        <h2 class='text-3xl font-serif font-black mb-4' style="font-family: ;">Visit Us</h2>
+        <p class='text-gray-700 leading-relaxed'>We’re delighted to welcome you to Brew Haven. Our Hyderabad location is designed to be a warm, inviting space where coffee lovers can linger over thoughtful brews and delicious pastries. You’ll find friendly baristas who know their beans and love to share tasting notes, brewing tips, and pairing suggestions. Our address is a comfortable walk from major transit lines and areas of interest, making it easy for locals and visitors alike to stop by for a quick espresso or a long, relaxed afternoon. We celebrate the social aspect of coffee—conversations, study sessions, and casual meetings that feel intimate in the glow of soft lighting and the comforting aroma of freshly ground coffee.</p>
+      </div>
+      <div class='fade-in'>
+        <h2 class='text-3xl font-serif font-black mb-4' style="font-family: ;">Contact Form</h2>
+        <form id='contact-form' class='bg-white shadow rounded-lg p-6' novalidate>
+          <div class='mb-4'>
+            <label class='block text-sm font-medium mb-1' for='name'>Name</label>
+            <input id='name' name='name' type='text' required class='w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400' placeholder='Your name'/>
+          </div>
+          <div class='mb-4'>
+            <label class='block text-sm font-medium mb-1' for='email'>Email</label>
+            <input id='email' name='email' type='email' required class='w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400' placeholder='you@example.com'/>
+          </div>
+          <div class='mb-4'>
+            <label class='block text-sm font-medium mb-1' for='message'>Message</label>
+            <textarea id='message' name='message' rows='5' required class='w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400' placeholder='How can we help?'></textarea>
+          </div>
+          <button type='submit' class='bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700'>Send Message</button>
+          <p id='form-status' class='text-sm text-green-600 mt-2 hidden'>Thank you! Your message has been received.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class='mt-8'>
+      <h2 class='text-3xl font-serif font-black mb-4' style="font-family: ;">Our Hyderabad Placeholder Details</h2>
+      <p class='text-gray-700'>Brew Haven is rooted in Hyderabad, with a tasting room vibe that blends traditional Indian hospitality with modern coffee culture. If you are nearby, we’d love to welcome you for a cup that tells a story. Our placeholder address for now is: 123 Aroma Lane, Secunderabad, Hyderabad, Telangana, India. This placeholder is for demonstration purposes and will be updated as the shop grows. We strive to embody the warmth of the city—busy streets, winding lanes, and that unmistakable aroma of roasted coffee that invites you to pause and savor the moment. We’re excited to share our passion with you and invite you to experience our seasonal roasts, first-visit offers, and pastry pairings that make each visit memorable.</p>
+    </section>
+  </main>
+
+  <footer class='bg-amber-900 text-white py-6 mt-12'>
+    <div class='container mx-auto text-center'>
+      <p>&copy; 2025 Brew Haven. Hyderabad, Telangana, India</p>
+    </div>
+  </footer>
+
+  <script>
+    // Basic form handling
+    const form = document.getElementById('contact-form');
+    if(form){ form.addEventListener('submit', (e) => { e.preventDefault(); const status = document.getElementById('form-status'); status.classList.remove('hidden'); form.reset(); }); }
+  </script>
+</body>
+</html>
