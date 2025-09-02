@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <title>Brew Haven</title>
+  <meta name='description' content='Brew Haven - a specialty coffee shop in Hyderabad, India, offering warm hospitality and meticulously crafted drinks.'/>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0);} }
+    .fade-in { opacity:0; animation: fadeInUp 0.8s forwards; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+  </style>
+</head>
+<body style="font-family: 'Playfair Display', sans-serif;" class='bg-amber-50 text-gray-800 font-sans'>
+  <!-- Header -->
+  <header class='fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 py-3 flex items-center justify-between'>
+      <div class='flex items-center gap-2'>
+        <!-- Logo inline SVG -->
+        <svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' aria-label='Brew Haven logo'>
+          <defs>
+            <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+              <stop stop-color='#B45309'/>
+              <stop offset='1' stop-color='#D97706'/>
+            </linearGradient>
+          </defs>
+          <circle cx='12' cy='12' r='9' stroke='url(#g)' stroke-width='2' fill='none'/>
+          <path d='M8 14 h8 a1 1 0 0 0 1 -1 v-2 a4 4 0 0 0 -4 -4 h-2 a4 4 0 0 0 -4 4 v2 a1 1 0 0 0 1 1 z' fill='url(#g)'/>
+        </svg>
+        <span class='font-semibold text-xl' style="font-family: ;">Brew Haven</span>
+      </div>
+
+      <nav class='hidden md:flex space-x-6'>
+        <a href='index.html' class='text-gray-700 hover:text-amber-700'>Home</a>
+        <a href='about.html' class='text-gray-700 hover:text-amber-700'>About</a>
+        <a href='menu.html' class='text-gray-700 hover:text-amber-700'>Menu</a>
+        <a href='contact.html' class='text-gray-700 hover:text-amber-700'>Contact</a>
+      </nav>
+      <div class='flex items-center gap-3'>
+        <a href='menu.html' class='hidden md:inline-block bg-gradient-to-r from-amber-500 to-amber-700 text-white px-4 py-2 rounded-md shadow hover:from-amber-600 hover:to-amber-800 hover:shadow-lg'>Order Online</a>
+        <button id='cart-toggle' aria-label='Open cart' class='md:hidden p-2 rounded-md bg-amber-100 hover:bg-amber-200'>
+          <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor'>
+            <path d='M3 3h2l.4 2M7 13h10l3-7H6.4' stroke-width='2'/>
+            <circle cx='9' cy='21' r='1'/>
+            <circle cx='20' cy='21' r='1'/>
+          </svg>
+        </button>
+        <!-- Mobile menu toggle -->
+        <button id='mobile-menu-btn' aria-label='Open menu' class='md:hidden p-2 rounded-md bg-amber-100 hover:bg-amber-200'>
+          <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor'>
+            <path d='M3 6h18M3 12h18M3 18h18' stroke-width='2'/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id='mobile-menu' class='md:hidden hidden px-4 pb-4'>
+      <a href='index.html' class='block py-2 text-gray-700'>Home</a>
+      <a href='about.html' class='block py-2 text-gray-700'>About</a>
+      <a href='menu.html' class='block py-2 text-gray-700'>Menu</a>
+      <a href='contact.html' class='block py-2 text-gray-700'>Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class='relative w-full h-screen overflow-hidden' id='home'>
+    <img src='https://images.pexels.com/photos/6801212/pexels-photo-6801212.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' alt='Cozy cafe interior' class='absolute inset-0 w-full h-full object-cover brightness-75'/>
+    <div class='absolute inset-0 bg-gradient-to-br from-amber-500/60 to-orange-900/60'></div>
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-white pt-40'>
+      <h1 class='text-5xl md:text-6xl font-serif font-black drop-shadow-lg'>Where warmth meets expertly crafted coffee</h1>
+      <p class='mt-4 text-lg md:text-xl text-amber-100'>Brew Haven is a neighborhood specialty coffee shop in Hyderabad, India, blending small-batch roasts with generous hospitality. Our baristas craft drinks with patience and precision, from single-origin espressos to velvety lattes—always roasted to highlight flavor, not fame.</p>
+      <div class='mt-8 flex flex-wrap gap-4'>
+        <a href='menu.html' class='bg-gradient-to-r from-amber-600 to-amber-800 text-white px-6 py-3 rounded-md hover:shadow-lg hover:translate-y(-1px) transition'>View Menu</a>
+        <a href='contact.html' class='bg-white text-amber-800 px-6 py-3 rounded-md border border-amber-200 hover:bg-amber-100'>Find Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content sections -->
+  <section class='py-16 px-6 bg-amber-50 fade-in delay-1' aria-label='Our story'>
+    <div class='max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center'>
+      <div>
+        <h2 class='text-3xl font-serif font-black mb-3' style="font-family: ;">Our Story</h2>
+        <p class='text-gray-700 leading-relaxed'>Brew Haven began as a simple idea: to create a space where every cup tells a story. It started with a Sunday morning ritual in a small apartment kitchen, where the first crack of a grinder released a perfume of roasted coffee that felt like home. We traveled to coffee-growing regions, tasting dozens of beans, learning from farmers, roasters, and fellow enthusiasts. We learned that great coffee is built on relationships—between farmer and roaster, between bean and water, and most importantly, between barista and guest. Our mission is to celebrate those connections by offering thoughtfully sourced beans, meticulously roasted profiles, and drinks crafted with care. We lean into sustainable practices, from responsible sourcing to compostable packaging, because a better cup should also be a kinder one.</p>
+        <p class='text-gray-700 leading-relaxed mt-4'>At Brew Haven, we don’t chase trends; we chase resonance. Each roast is cupped and adjusted to emphasize balance, brightness, and aroma. Our menu rotates with the seasons, ensuring fresh, sustainable selections that pair beautifully with our in-house pastries. We invite you to linger, to savor the moment, and to feel at home among the hum of grinders, the hiss of the espresso machine, and the friendly chatter of fellow guests.</p>
+      </div>
+      <div class='relative rounded-xl overflow-hidden shadow-xl h-80'>
+        <img src='https://images.pexels.com/photos/2074116/pexels-photo-2074116.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' alt='Barista pouring latte art' class='w-full h-full object-cover'/>
+      </div>
+    </div>
+  </section>
+
+  <section class='py-16 px-6 bg-white fade-in delay-2' aria-label='Sourcing and craft'>
+    <div class='max-w-5xl mx-auto'>
+      <h2 class='text-3xl font-serif font-black mb-6' style="font-family: ;">Sourcing and Craft</h2>
+      <p class='text-gray-800 leading-relaxed'>We partner with select farmers who share our commitment to quality, transparency, and sustainable cultivation. Our green beans travel from origin to cup through careful processing and shipping practices that protect aroma and flavor. Each roast is developed in small batches to ensure consistent roast development and the preservation of nuanced tasting notes: fruity citrus, chocolate, berry, and florals that excite the palate. Our roastery uses environmentally friendly methods, from energy-efficient roasters to waste-reducing packaging. Our team works hands-on with our suppliers, auditing farms, tasting lots, and selecting components that harmonize with our house profiles. This is more than coffee; it is a story of soil, sun, and patient craft.</p>
+      <p class='text-gray-800 leading-relaxed mt-4'>Pairing is part of the experience. Our baristas craft beverages that balance acidity and sweetness, allowing beans to express themselves fully. We also offer seasonal specials, limited releases, and education sessions to help you understand flavor development. Whether you crave a bright single-origin espresso or a comforting espresso macchiato, Brew Haven aims to elevate your daily ritual.</p>
+    </div>
+  </section>
+
+  <section class='py-16 px-6 bg-amber-50 fade-in delay-3' aria-label='Testimonials' id='testimonials'>
+    <div class='max-w-5xl mx-auto text-center'>
+      <h2 class='text-3xl font-serif font-black mb-4' style="font-family: ;">What guests say</h2>
+      <p class='text-gray-700 mb-8'>A few words from our community. Honest feedback helps us grow and continue delivering warmth in every cup.</p>
+      <div class='grid md:grid-cols-3 gap-6'>
+        <blockquote class='bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-300'>
+          <p class='italic'>“The latte art is a small miracle. Creamy texture and a cozy vibe that makes you want to stay all afternoon.”</p>
+          <div class='mt-4 flex items-center gap-3'>
+            <img src='https://images.unsplash.com/photo-1689659700109-db8a16a7da0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw3fHxzbWlsaW5nJTIwZ3Vlc3QlMjAxfGVufDB8MHx8fDE3NTY4MzMzNjB8MA&ixlib=rb-4.1.0&q=80&w=1080' alt='Guest 1' class='w-10 h-10 rounded-full object-cover'/>
+            <div>
+              <strong>Arjun M.</strong><br>
+              <span class='text-sm text-gray-500'>Hyderabad local</span>
+            </div>
+          </div>
+        </blockquote>
+        <blockquote class='bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-300'>
+          <p class='italic'>“A warm space with exceptional beans. Our go-to spot for slow Sundays and great conversation.”</p>
+          <div class='mt-4 flex items-center gap-3'>
+            <img src='https://images.pexels.com/photos/4907441/pexels-photo-4907441.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' alt='Guest 2' class='w-10 h-10 rounded-full object-cover'/>
+            <div>
+              <strong>Priya S.</strong><br>
+              <span class='text-sm text-gray-500'>Tech consultant</span>
+            </div>
+          </div>
+        </blockquote>
+        <blockquote class='bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-300'>
+          <p class='italic'>“The pastry pairing with the coffee is perfect. Friendly staff and a peaceful corner of the city.”</p>
+          <div class='mt-4 flex items-center gap-3'>
+            <img src='https://images.pexels.com/photos/7180625/pexels-photo-7180625.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' alt='Guest 3' class='w-10 h-10 rounded-full object-cover'/>
+            <div>
+              <strong>Aparna R.</strong><br>
+              <span class='text-sm text-gray-500'>College professor</span>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating cart (drawer) -->
+  <aside id='cart-drawer' class='fixed top-0 right-0 h-full w-72 bg-white shadow-xl transform translate-x-full transition-transform' aria-label='Cart Drawer'>
+    <div class='p-4 border-b'>
+      <div class='flex items-center justify-between'>
+        <h3 class='text-xl font-semibold'>Your Cart</h3>
+        <button id='cart-close' aria-label='Close cart' class='text-gray-600'>✕</button>
+      </div>
+    </div>
+    <div id='cart-items' class='p-4 overflow-y-auto h-ful'></div>
+    <div class='p-4 border-t'>
+      <div class='flex items-center justify-between mb-3'>
+        <span class='font-semibold'>Total</span>
+        <span id='cart-total' class='font-semibold'>₹0.00</span>
+      </div>
+      <a href='cart.html' class='w-full inline-block bg-amber-600 text-white py-2 rounded-md text-center hover:bg-amber-700'>Checkout</a>
+    </div>
+  </aside>
+
+  <main class='pt-0'>
+    <footer class='bg-amber-900 text-white py-6 mt-20'>
+      <div class='container mx-auto text-center'>
+        <p>&copy; 2025 Brew Haven. 123 Aroma Lane, Secunderabad, Hyderabad, Telangana, India</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Cart logic shared across pages (localStorage-based)
+    const cartKey = 'brewHavenCart';
+    function getCart(){ const s = localStorage.getItem(cartKey); return s ? JSON.parse(s) : []; }
+    function saveCart(items){ localStorage.setItem(cartKey, JSON.stringify(items)); renderCartDrawer(); }
+    function addToCart(item){ const cart = getCart(); const existing = cart.find(i => i.id === item.id); if(existing){ existing.qty += 1; } else { cart.push({id: item.id, name: item.name, price: item.price, qty: 1}); } saveCart(cart); }
+    function removeFromCart(id){ const cart = getCart().filter(i => i.id !== id); saveCart(cart); }
+    function updateQty(id, delta){ const cart = getCart().map(i => i.id === id ? {...i, qty: Math.max(1, (i.qty||1)+delta)} : i); saveCart(cart); }
+    function formatPrice(n){ return '₹' + Number(n).toFixed(2); }
+    function renderCartDrawer(){ const items = getCart(); const container = document.getElementById('cart-items'); if(!container) return; container.innerHTML = items.length ? items.map(i => `
+      <div class='flex items-center justify-between py-2 border-b'>
+        <div class='flex items-center gap-2'>
+          <span class='w-6 h-6 rounded bg-amber-200 inline-flex items-center justify-center'>${i.name.charAt(0)}</span>
+          <div>
+            <div class='text-sm font-semibold'>${i.name}</div>
+            <div class='text-xs text-gray-500'>${i.qty} × ${'₹'+Number(i.price).toFixed(2)}</div>
+          </div>
+        </div>
+        <div class='flex items-center gap-2'>
+          <button aria-label='Decrease quantity' class='px-2 py-1 rounded bg-gray-200' onclick="updateQty('${i.id}', -1)">-</button>
+          <span class='text-sm w-6 text-center'>${i.qty}</span>
+          <button aria-label='Increase quantity' class='px-2 py-1 rounded bg-gray-200' onclick="updateQty('${i.id}', 1)">+</button>
+          <button aria-label='Remove item' class='text-red-500' onclick="removeFromCart('${i.id}')">Remove</button>
+        </div>
+      </div>`).join('') : '<p class="text-sm text-gray-600">Cart is empty. Add some delicious drinks and pastries!</p>'; 
+      const total = items.reduce((a, b) => a + (b.price * b.qty), 0); const totalEl = document.getElementById('cart-total'); if(totalEl) totalEl.textContent = formatPrice(total);
+    }
+
+    const toggleBtn = document.getElementById('cart-toggle');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartClose = document.getElementById('cart-close');
+    if(toggleBtn && cartDrawer){ toggleBtn.addEventListener('click', () => { cartDrawer.classList.toggle('translate-x-full'); renderCartDrawer(); }); }
+    if(cartClose){ cartClose.addEventListener('click', () => cartDrawer.classList.add('translate-x-full')); }
+
+    window.addEventListener('load', () => { renderCartDrawer(); });
+
+    // Basic demo data injection is handled on Menu page via addToCart calls
+  </script>
+</body>
+</html>
